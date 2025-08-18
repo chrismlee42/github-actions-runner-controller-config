@@ -12,4 +12,5 @@ commonLabels:
 namespace: github-actions-runner-controller
 
 resources:
+  - github-config-secret.yaml
   - namespace.yaml
