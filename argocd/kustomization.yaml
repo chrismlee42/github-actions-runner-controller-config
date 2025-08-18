@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: github-actions-runner-controller-config
+
+commonLabels:
+  app: github-actions-runner-controller
+  managedBy: argocd
+  managementCodeGroup: chrismlee42
+  managementCodeProject: github-actions-runner-controller-config
+
+namespace: github-actions-runner-controller
+
+resources:
+  - namespace.yaml
