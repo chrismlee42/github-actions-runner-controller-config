@@ -11,6 +11,32 @@ commonLabels:
 
 namespace: github-actions-runner-controller
 
+patches:
+  - patch: |-
+      - op: remove
+        path: /spec/preserveUnknownFields
+    target:
+      kind: CustomResourceDefinition
+      name: autoscalinglisteners.actions.github.com
+  - patch: |-
+      - op: remove
+        path: /spec/preserveUnknownFields
+    target:
+      kind: CustomResourceDefinition
+      name: autoscalingrunnersets.actions.github.com
+  - patch: |-
+      - op: remove
+        path: /spec/preserveUnknownFields
+    target:
+      kind: CustomResourceDefinition
+      name: ephemeralrunners.actions.github.com
+  - patch: |-
+      - op: remove
+        path: /spec/preserveUnknownFields
+    target:
+      kind: CustomResourceDefinition
+      name: ephemeralrunnersets.actions.github.com
+
 resources:
   - github-config-secret.yaml
   - namespace.yaml
