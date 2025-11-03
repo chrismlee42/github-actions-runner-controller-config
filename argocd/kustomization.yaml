@@ -13,6 +13,11 @@ namespace: github-actions-runner-controller
 
 patches:
   - patch: |-
+      - op: replace
+    target:
+      kind: Deployment
+
+  - patch: |-
       - op: remove
         path: /spec/preserveUnknownFields
     target:
@@ -38,5 +43,7 @@ patches:
       name: ephemeralrunnersets.actions.github.com
 
 resources:
+  # https://github.com/actions/actions-runner-controller/releases
+  # - https://github.com/actions/actions-runner-controller/releases/download/gha-runner-scale-set-0.13.0/actions-runner-controller.yaml
   - github-config-secret.yaml
   - namespace.yaml
